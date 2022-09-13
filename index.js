@@ -81,13 +81,8 @@ Use the higher-order function getWinnersByYear to do the following:
 function getWinnersByYear(data, getFinals, getYears, getWinners) {
     let years = getYears(data, getFinals);
     let winners = getWinners(data, getFinals);
-    let finalArray = [];
 
-    for (let i in years) {
-        finalArray.push(`In ${years[i]}, ${winners[i]} won the world cup!`);
-    }
-
-    return finalArray;
+    return years.map((year, index) => `In ${year}, ${winners[index]} won the world cup!`);
 }
 
 
