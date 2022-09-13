@@ -58,11 +58,22 @@ Use the higher-order function getWinners to do the following:
 💡 HINT: Don't worry about ties for now (Please see the README file for info on ties for a stretch goal.)
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-    /* code here */
+function getWinners(data, getFinals) {
+    let finalGames = getFinals(data);
+    let teamWinners = finalGames.map(game => {
+        if (game["Home Team Goals"] > game["Away Team Goals"]) {
+            return game["Home Team Name"];
+
+        } else if (game["Home Team Goals"] < game["Away Team Goals"]) {
+            return game["Away Team Name"];
+            
+        }
+    })
+
+    return teamWinners;
 }
 
-
+getWinners(fifaData, getFinals);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
