@@ -92,13 +92,11 @@ function getWinnersByYear(data, getFinals, getYears, getWinners) {
     let finalArray = [];
 
     for (let i in years) {
-        finalArray.push(`In ${years[i]}, ${winners[i]} won the world cup!`)
+        finalArray.push(`In ${years[i]}, ${winners[i]} won the world cup!`);
     }
 
     return finalArray;
-
 }
-getWinnersByYear(fifaData, getFinals, getYears, getWinners)
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -115,11 +113,12 @@ Use the higher order function `getAverageGoals` to do the following:
  
 */
 
-function getAverageGoals(/* code here */) {
-    /* code here */
+function getAverageGoals(finals) {
+   let scoreAverage = finals.reduce((sum, game) => sum + (game["Home Team Goals"] + game["Away Team Goals"]) / finals.length, 0)
+   return scoreAverage.toFixed(2)
  }
 
-
+getAverageGoals(getFinals(fifaData));
 
 
 /// 🥅 STRETCH 🥅 ///
