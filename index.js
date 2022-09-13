@@ -60,15 +60,7 @@ Use the higher-order function getWinners to do the following:
 
 function getWinners(data, getFinals) {
     let finalGames = getFinals(data);
-    let teamWinners = finalGames.map(game => {
-        if (game["Home Team Goals"] > game["Away Team Goals"]) {
-            return game["Home Team Name"];
-
-        } else if (game["Home Team Goals"] < game["Away Team Goals"]) {
-            return game["Away Team Name"];
-
-        }
-    })
+    let teamWinners = finalGames.map(game => game["Home Team Goals"] > game["Away Team Goals"] ? game["Home Team Name"] : game["Away Team Name"]);
 
     return teamWinners;
 }
@@ -140,7 +132,7 @@ function getCountryWins(/* code here */) {
 /* 💪💪💪💪💪 Stretch 2: 💪💪💪💪💪 
 Write a function called getGoals() that accepts a parameter `data` and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */
 
-function getGoals(/* code here */) {
+function getGoals(data) {
 
     /* code here */
 
