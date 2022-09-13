@@ -66,7 +66,7 @@ function getWinners(data, getFinals) {
 
         } else if (game["Home Team Goals"] < game["Away Team Goals"]) {
             return game["Away Team Name"];
-            
+
         }
     })
 
@@ -86,10 +86,19 @@ Use the higher-order function getWinnersByYear to do the following:
 💡 HINT: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
-}
+function getWinnersByYear(data, getFinals, getYears, getWinners) {
+    let years = getYears(data, getFinals);
+    let winners = getWinners(data, getFinals);
+    let finalArray = [];
 
+    for (let i in years) {
+        finalArray.push(`In ${years[i]}, ${winners[i]} won the world cup!`)
+    }
+
+    return finalArray;
+
+}
+getWinnersByYear(fifaData, getFinals, getYears, getWinners)
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
